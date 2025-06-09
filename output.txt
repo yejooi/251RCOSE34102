@@ -1,0 +1,277 @@
+PID	PRI	AT	CBT	IOBT	IORT
+1	4	7	10	1	6
+2	2	9	1	0	0
+3	1	9	10	1	6
+4	5	8	1	0	0
+
+----- FCFS -----
+Time 0 ~ 1: idle
+Time 1 ~ 2: idle
+Time 2 ~ 3: idle
+Time 3 ~ 4: idle
+Time 4 ~ 5: idle
+Time 5 ~ 6: idle
+Time 6 ~ 7: idle
+Time 7 ~ 8: (P1 running)
+Time 8 ~ 9: (P1 running)
+Time 9 ~ 10: (P1 running)
+Time 10 ~ 11: (P1 running)
+Time 11 ~ 12: (P1 running)
+Time 12 ~ 13: (P1 running) -> I/O start
+Time 13 ~ 14: (P1 I/O processing) -> I/O done (P4 running) -> terminated (completed 1/4)
+Time 14 ~ 15: (P1 running)
+Time 15 ~ 16: (P1 running)
+Time 16 ~ 17: (P1 running)
+Time 17 ~ 18: (P1 running) -> terminated (completed 2/4)
+Time 18 ~ 19: (P2 running) -> terminated (completed 3/4)
+Time 19 ~ 20: (P3 running)
+Time 20 ~ 21: (P3 running)
+Time 21 ~ 22: (P3 running)
+Time 22 ~ 23: (P3 running)
+Time 23 ~ 24: (P3 running)
+Time 24 ~ 25: (P3 running) -> I/O start
+Time 25 ~ 26: (P3 I/O processing) -> I/O done idle
+Time 26 ~ 27: (P3 running)
+Time 27 ~ 28: (P3 running)
+Time 28 ~ 29: (P3 running)
+Time 29 ~ 30: (P3 running) -> terminated (completed 4/4)
+Simulation End at Time 30
+
+Gantt Chart:
+| idle |  P1  |  P4  |  P1  |  P2  |  P3  | idle |  P3  |
+0      7      13     14     18     19     25     26     30
+
+Process Evaluation:
+P1: TAT = 11, WT = 0, Start = 7, End = 18
+P2: TAT = 10, WT = 9, Start = 18, End = 19
+P3: TAT = 21, WT = 10, Start = 19, End = 30
+P4: TAT = 6, WT = 5, Start = 13, End = 14
+
+Average Turnaround Time: 12.00
+Average Waiting Time: 6.00
+
+----- SJF -----
+Time 0 ~ 1: idle
+Time 1 ~ 2: idle
+Time 2 ~ 3: idle
+Time 3 ~ 4: idle
+Time 4 ~ 5: idle
+Time 5 ~ 6: idle
+Time 6 ~ 7: idle
+Time 7 ~ 8: (P1 running)
+Time 8 ~ 9: (P1 running)
+Time 9 ~ 10: (P1 running)
+Time 10 ~ 11: (P1 running)
+Time 11 ~ 12: (P1 running)
+Time 12 ~ 13: (P1 running) -> I/O start
+Time 13 ~ 14: (P1 I/O processing) -> I/O done (P2 running) -> terminated (completed 1/4)
+Time 14 ~ 15: (P4 running) -> terminated (completed 2/4)
+Time 15 ~ 16: (P1 running)
+Time 16 ~ 17: (P1 running)
+Time 17 ~ 18: (P1 running)
+Time 18 ~ 19: (P1 running) -> terminated (completed 3/4)
+Time 19 ~ 20: (P3 running)
+Time 20 ~ 21: (P3 running)
+Time 21 ~ 22: (P3 running)
+Time 22 ~ 23: (P3 running)
+Time 23 ~ 24: (P3 running)
+Time 24 ~ 25: (P3 running) -> I/O start
+Time 25 ~ 26: (P3 I/O processing) -> I/O done idle
+Time 26 ~ 27: (P3 running)
+Time 27 ~ 28: (P3 running)
+Time 28 ~ 29: (P3 running)
+Time 29 ~ 30: (P3 running) -> terminated (completed 4/4)
+Simulation End at Time 30
+
+Gantt Chart:
+| idle |  P1  |  P2  |  P4  |  P1  |  P3  | idle |  P3  |
+0      7      13     14     15     19     25     26     30
+
+Process Evaluation:
+P1: TAT = 12, WT = 1, Start = 7, End = 19
+P2: TAT = 5, WT = 4, Start = 13, End = 14
+P3: TAT = 21, WT = 10, Start = 19, End = 30
+P4: TAT = 7, WT = 6, Start = 14, End = 15
+
+Average Turnaround Time: 11.25
+Average Waiting Time: 5.25
+
+----- PSJF -----
+Time 0 ~ 1: idle
+Time 1 ~ 2: idle
+Time 2 ~ 3: idle
+Time 3 ~ 4: idle
+Time 4 ~ 5: idle
+Time 5 ~ 6: idle
+Time 6 ~ 7: idle
+Time 7 ~ 8: (P1 running)
+Time 8 ~ 9: (P4 running) -> terminated (completed 1/4)
+Time 9 ~ 10: (P2 running) -> terminated (completed 2/4)
+Time 10 ~ 11: (P1 running)
+Time 11 ~ 12: (P1 running)
+Time 12 ~ 13: (P1 running)
+Time 13 ~ 14: (P1 running)
+Time 14 ~ 15: (P1 running) -> I/O start
+Time 15 ~ 16: (P1 I/O processing) -> I/O done (P3 running)
+Time 16 ~ 17: (P3 running)
+Time 17 ~ 18: (P3 running)
+Time 18 ~ 19: (P3 running)
+Time 19 ~ 20: (P3 running)
+Time 20 ~ 21: (P3 running) -> I/O start
+Time 21 ~ 22: (P3 I/O processing) -> I/O done (P1 running)
+Time 22 ~ 23: (P1 running)
+Time 23 ~ 24: (P1 running)
+Time 24 ~ 25: (P1 running) -> terminated (completed 3/4)
+Time 25 ~ 26: (P3 running)
+Time 26 ~ 27: (P3 running)
+Time 27 ~ 28: (P3 running)
+Time 28 ~ 29: (P3 running) -> terminated (completed 4/4)
+Simulation End at Time 29
+
+Gantt Chart:
+| idle |  P1  |  P4  |  P2  |  P1  |  P3  |  P1  |  P3  |
+0      7      8      9      10     15     21     25     29
+
+Process Evaluation:
+P1: TAT = 18, WT = 7, Start = 7, End = 25
+P2: TAT = 1, WT = 0, Start = 9, End = 10
+P3: TAT = 20, WT = 9, Start = 15, End = 29
+P4: TAT = 1, WT = 0, Start = 8, End = 9
+
+Average Turnaround Time: 10.00
+Average Waiting Time: 4.00
+
+----- Priority -----
+Time 0 ~ 1: idle
+Time 1 ~ 2: idle
+Time 2 ~ 3: idle
+Time 3 ~ 4: idle
+Time 4 ~ 5: idle
+Time 5 ~ 6: idle
+Time 6 ~ 7: idle
+Time 7 ~ 8: (P1 running)
+Time 8 ~ 9: (P1 running)
+Time 9 ~ 10: (P1 running)
+Time 10 ~ 11: (P1 running)
+Time 11 ~ 12: (P1 running)
+Time 12 ~ 13: (P1 running) -> I/O start
+Time 13 ~ 14: (P1 I/O processing) -> I/O done (P3 running)
+Time 14 ~ 15: (P3 running)
+Time 15 ~ 16: (P3 running)
+Time 16 ~ 17: (P3 running)
+Time 17 ~ 18: (P3 running)
+Time 18 ~ 19: (P3 running) -> I/O start
+Time 19 ~ 20: (P3 I/O processing) -> I/O done (P2 running) -> terminated (completed 1/4)
+Time 20 ~ 21: (P3 running)
+Time 21 ~ 22: (P3 running)
+Time 22 ~ 23: (P3 running)
+Time 23 ~ 24: (P3 running) -> terminated (completed 2/4)
+Time 24 ~ 25: (P1 running)
+Time 25 ~ 26: (P1 running)
+Time 26 ~ 27: (P1 running)
+Time 27 ~ 28: (P1 running) -> terminated (completed 3/4)
+Time 28 ~ 29: (P4 running) -> terminated (completed 4/4)
+Simulation End at Time 29
+
+Gantt Chart:
+| idle |  P1  |  P3  |  P2  |  P3  |  P1  |  P4  |
+0      7      13     19     20     24     28     29
+
+Process Evaluation:
+P1: TAT = 21, WT = 10, Start = 7, End = 28
+P2: TAT = 11, WT = 10, Start = 19, End = 20
+P3: TAT = 15, WT = 4, Start = 13, End = 24
+P4: TAT = 21, WT = 20, Start = 28, End = 29
+
+Average Turnaround Time: 17.00
+Average Waiting Time: 11.00
+
+----- PPriority -----
+Time 0 ~ 1: idle
+Time 1 ~ 2: idle
+Time 2 ~ 3: idle
+Time 3 ~ 4: idle
+Time 4 ~ 5: idle
+Time 5 ~ 6: idle
+Time 6 ~ 7: idle
+Time 7 ~ 8: (P1 running)
+Time 8 ~ 9: (P1 running)
+Time 9 ~ 10: (P3 running)
+Time 10 ~ 11: (P3 running)
+Time 11 ~ 12: (P3 running)
+Time 12 ~ 13: (P3 running)
+Time 13 ~ 14: (P3 running)
+Time 14 ~ 15: (P3 running) -> I/O start
+Time 15 ~ 16: (P3 I/O processing) -> I/O done (P2 running) -> terminated (completed 1/4)
+Time 16 ~ 17: (P3 running)
+Time 17 ~ 18: (P3 running)
+Time 18 ~ 19: (P3 running)
+Time 19 ~ 20: (P3 running) -> terminated (completed 2/4)
+Time 20 ~ 21: (P1 running)
+Time 21 ~ 22: (P1 running)
+Time 22 ~ 23: (P1 running)
+Time 23 ~ 24: (P1 running) -> I/O start
+Time 24 ~ 25: (P1 I/O processing) -> I/O done (P4 running) -> terminated (completed 3/4)
+Time 25 ~ 26: (P1 running)
+Time 26 ~ 27: (P1 running)
+Time 27 ~ 28: (P1 running)
+Time 28 ~ 29: (P1 running) -> terminated (completed 4/4)
+Simulation End at Time 29
+
+Gantt Chart:
+| idle |  P1  |  P3  |  P2  |  P3  |  P1  |  P4  |  P1  |
+0      7      9      15     16     20     24     25     29
+
+Process Evaluation:
+P1: TAT = 22, WT = 11, Start = 7, End = 29
+P2: TAT = 7, WT = 6, Start = 15, End = 16
+P3: TAT = 11, WT = 0, Start = 9, End = 20
+P4: TAT = 17, WT = 16, Start = 24, End = 25
+
+Average Turnaround Time: 14.25
+Average Waiting Time: 8.25
+
+----- RR (Q=2) -----
+Time 0 ~ 1: idle
+Time 1 ~ 2: idle
+Time 2 ~ 3: idle
+Time 3 ~ 4: idle
+Time 4 ~ 5: idle
+Time 5 ~ 6: idle
+Time 6 ~ 7: idle
+Time 7 ~ 8: (P1 running)
+Time 8 ~ 9: (P1 running) -> time slice expired
+Time 9 ~ 10: (P4 running) -> terminated (completed 1/4)
+Time 10 ~ 11: (P1 running)
+Time 11 ~ 12: (P1 running) -> time slice expired
+Time 12 ~ 13: (P2 running) -> terminated (completed 2/4)
+Time 13 ~ 14: (P3 running)
+Time 14 ~ 15: (P3 running) -> time slice expired
+Time 15 ~ 16: (P1 running)
+Time 16 ~ 17: (P1 running) -> I/O start
+Time 17 ~ 18: (P1 I/O processing) -> I/O done (P3 running)
+Time 18 ~ 19: (P3 running) -> time slice expired
+Time 19 ~ 20: (P1 running)
+Time 20 ~ 21: (P1 running) -> time slice expired
+Time 21 ~ 22: (P3 running)
+Time 22 ~ 23: (P3 running) -> I/O start
+Time 23 ~ 24: (P3 I/O processing) -> I/O done (P1 running)
+Time 24 ~ 25: (P1 running) -> terminated (completed 3/4)
+Time 25 ~ 26: (P3 running)
+Time 26 ~ 27: (P3 running) -> time slice expired
+Time 27 ~ 28: (P3 running)
+Time 28 ~ 29: (P3 running) -> terminated (completed 4/4)
+Simulation End at Time 29
+
+Gantt Chart:
+| idle |  P1  |  P4  |  P1  |  P2  |  P3  |  P1  |  P3  |  P1  |  P3  |  P1  |  P3  |
+0      7      9      10     12     13     15     17     19     21     23     25     29
+
+Process Evaluation:
+P1: TAT = 18, WT = 7, Start = 7, End = 25
+P2: TAT = 4, WT = 3, Start = 12, End = 13
+P3: TAT = 20, WT = 9, Start = 13, End = 29
+P4: TAT = 2, WT = 1, Start = 9, End = 10
+
+Average Turnaround Time: 11.00
+Average Waiting Time: 5.00
